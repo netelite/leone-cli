@@ -6,6 +6,12 @@ Command Line Interface for installing and managing the LEONE AI Governance Metho
 
 ---
 
+## 📸 Preview
+
+![LEONE CLI About](leone-about.png)
+
+---
+
 ## 📜 License & Copyright
 
 **CLI Code:** MIT License — see [LICENSE-CODE](LICENSE-CODE)
