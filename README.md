@@ -10,13 +10,28 @@ Command Line Interface for installing and managing the LEONE AI Governance Metho
 
 **CLI Code:** MIT License — see [LICENSE-CODE](LICENSE-CODE)
 
-**LEONE Methodology:** CC BY-NC-ND 4.0 — see [LICENSE-METHODOLOGY](LICENSE-METHODOLOGY)
+**LEONE Methodology:** CC BY-SA 4.0 — see [LICENSE-METHODOLOGY](LICENSE-METHODOLOGY)
 
 **Copyright:** © 2026 NETELITE. All rights reserved.
 
 **LEONE** is a trademark of NETELITE.
 
 ---
+
+### What CC BY-SA 4.0 Means:
+
+✅ **You can:**
+- Use LEONE for personal and commercial projects
+- Modify and improve the methodology
+- Create training courses based on LEONE
+- Distribute your modifications
+
+✅ **But you must:**
+- Give credit to NETELITE
+- Release modifications under the same CC BY-SA 4.0 license
+- Not suggest NETELITE endorses you (without permission)
+
+📖 Full license: https://creativecommons.org/licenses/by-sa/4.0/
 
 ## Installation
 

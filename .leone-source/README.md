@@ -8,10 +8,19 @@
 
 **© 2026 NETELITE. All rights reserved.**
 
-This methodology is licensed under **CC BY-NC-ND 4.0**.
+This methodology is licensed under **CC BY-SA 4.0**.
 See [LICENSE-METHODOLOGY](../LICENSE-METHODOLOGY) for details.
 
 **LEONE** is a trademark of NETELITE.
+
+### You are free to:
+- ✅ Use for personal and commercial projects
+- ✅ Modify and improve
+- ✅ Distribute your modifications
+
+### But you must:
+- ✅ Give credit to NETELITE
+- ✅ Release modifications under CC BY-SA 4.0
 
 ---
 

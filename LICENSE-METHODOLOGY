@@ -1,47 +1,165 @@
 # LEONE Methodology License
 
-## Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+## Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 ### Summary
 
-The LEONE AI Governance Methodology (all files in `.leone-source/` directory) is licensed under CC BY-NC-ND 4.0.
+The LEONE AI Governance Methodology (all files in `.leone-source/` directory) is licensed under CC BY-SA 4.0.
 
 **You are free to:**
-- ✅ **Share** — copy and redistribute the material in any medium or format
 
-**Under the following terms:**
-- ✅ **Attribution** — You must give appropriate credit to NETELITE, provide a link to the license, and indicate if changes were made
-- ❌ **NonCommercial** — You may not use the material for commercial purposes
-- ❌ **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material
+- ✅ **Share** — copy and redistribute the material in any medium or format
+- ✅ **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
+
+### Under the following terms:
+
+- ✅ **Attribution** — You must give appropriate credit to NETELITE, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+- ✅ **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the **same license** as the original.
 
 ### What This Means:
 
-**✅ DO:**
-- Use LEONE methodology for your personal projects
-- Use LEONE methodology for your company's internal projects
-- Share LEONE with your team
+**✅ YOU CAN:**
+
+- Use LEONE methodology for personal projects
+- Use LEONE methodology for commercial projects
+- Use LEONE methodology for client work
 - Teach LEONE methodology (with attribution)
+- Create training courses based on LEONE
+- Modify and improve the methodology
+- Distribute your modified versions
+- Sell products or services using LEONE
 
-**❌ DON'T:**
-- Sell LEONE methodology
-- Charge for LEONE training without permission
-- Modify LEONE and distribute as your own
-- Create derivative works based on LEONE
-- Use LEONE in commercial products without explicit permission
+**✅ BUT YOU MUST:**
 
-### Commercial Use
+- Give credit to NETELITE as the original creator
+- Link to the CC BY-SA 4.0 license
+- Indicate if you made changes
+- Release your modifications under the **same CC BY-SA 4.0 license**
+- Not suggest NETELITE endorses you (unless they explicitly do)
 
-For commercial use (training, consulting, products), please contact:
-- **Email:** [YOUR_EMAIL]
-- **Website:** [YOUR_WEBSITE]
+---
+
+### Examples:
+
+#### ✅ DO:
+
+```
+✅ Create a LEONE training course and sell it
+   → Credit: "Based on LEONE by NETELITE"
+   → License: CC BY-SA 4.0
+
+✅ Modify LEONE for your agency and use with clients
+   → Credit: "Based on LEONE by NETELITE"
+   → License: CC BY-SA 4.0
+
+✅ Create "LEONE Enterprise" variant with additional features
+   → Credit: "Based on LEONE by NETELITE"
+   → License: CC BY-SA 4.0
+
+✅ Write a book about LEONE methodology
+   → Credit: "LEONE created by NETELITE"
+   → License: CC BY-SA 4.0
+```
+
+#### ❌ DON'T:
+
+```
+❌ Claim you created LEONE
+   → Must credit NETELITE
+
+❌ Distribute modifications under a different license
+   → Must use CC BY-SA 4.0
+
+❌ Suggest NETELITE endorses your product (without permission)
+   → No false endorsement
+
+❌ Add additional restrictions
+   → Cannot add "non-commercial" or "no derivatives"
+```
+
+---
+
+### Commercial Use Examples:
+
+| Use Case | Allowed? | Requirements |
+|----------|----------|--------------|
+| Sell LEONE training course | ✅ YES | Credit NETELITE, use CC BY-SA 4.0 |
+| Use LEONE with consulting clients | ✅ YES | Credit NETELITE |
+| Create "LEONE Certified" program | ✅ YES | Credit NETELITE, use CC BY-SA 4.0 |
+| Write and sell a book about LEONE | ✅ YES | Credit NETELITE, use CC BY-SA 4.0 |
+| Create SaaS tool based on LEONE | ✅ YES | Credit NETELITE |
+| Modify LEONE and keep private | ✅ YES | No distribution = no requirements |
+| Distribute modified LEONE | ✅ YES | Credit NETELITE, use CC BY-SA 4.0 |
+
+---
+
+### For Businesses:
+
+**Using LEONE internally?**
+- ✅ No restrictions
+- ✅ No need to share your modifications (unless you distribute)
+
+**Using LEONE with clients?**
+- ✅ Allowed
+- ✅ Just credit NETELITE in documentation
+
+**Creating a product based on LEONE?**
+- ✅ Allowed (including commercial products)
+- ✅ Credit NETELITE
+- ✅ If you distribute the methodology, use CC BY-SA 4.0
+
+---
 
 ### Full Legal Code
 
 For the full legal code, visit:
-https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+### Human-Readable Summary
+
+For a human-readable summary:
+https://creativecommons.org/licenses/by-sa/4.0/
 
 ---
 
-**Copyright (c) 2026 NETELITE. All rights reserved.**
+## 🦁 About LEONE
+
+**LEONE** = LEO (Lion 🦁) + NE (NetElite)
+
+**Tagline:** "Lead your AI with confidence"
+
+LEONE is an AI Governance Methodology created by NETELITE for human-AI collaboration in software development.
+
+---
+
+## 📞 Contact & Commercial Inquiries
+
+For questions, partnerships, or commercial inquiries:
+
+- **GitHub:** https://github.com/netelite/leone-cli
+- **NPM:** https://www.npmjs.com/package/leone-cli
+- **Email:** [YOUR_EMAIL]
+- **Website:** [YOUR_WEBSITE]
+
+---
+
+**Copyright (c) 2026 NETELITE**
 
 **LEONE** is a trademark of NETELITE.
+
+Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+---
+
+## 🎯 Why CC BY-SA 4.0?
+
+We chose CC BY-SA 4.0 because:
+
+1. **We want LEONE to become a standard** in AI governance
+2. **Community contributions make LEONE better** for everyone
+3. **ShareAlike ensures improvements stay open** for the community
+4. **Commercial use is encouraged** — it helps spread LEONE
+5. **You keep credit** as the original creator
+
+**Our philosophy:** Share openly, grow together, everyone benefits. 🦁

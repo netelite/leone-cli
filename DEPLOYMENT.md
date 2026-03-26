@@ -39,7 +39,7 @@ git add .
 ### 1.4 Create First Commit
 
 ```bash
-git commit -m "Initial commit - LEONE CLI v1.0.0 🦁
+git commit -m "Initial commit - LEONE CLI v1.0.0"
 
 Features:
 - CLI tool for installing LEONE methodology
