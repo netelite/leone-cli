@@ -1,5 +1,5 @@
 {
-  "name": "leone-cli",
+  "name": "@netelite/leone-cli",
   "version": "1.0.0",
   "description": "LEONE AI Governance Methodology CLI",
   "main": "index.js",

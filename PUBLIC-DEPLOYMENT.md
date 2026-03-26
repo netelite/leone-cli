@@ -139,16 +139,18 @@ Enter your npm credentials.
 
 ```bash
 cd your_destination\leone-cli
-npm publish
+npm publish --access=public
 ```
+
+**Note:** `--access=public` is required for scoped packages (@netelite/leone-cli)
 
 ### 4.3 Verify Publication
 
 ```bash
-npm view leone-cli
+npm view @netelite/leone-cli
 ```
 
-Or visit: https://www.npmjs.com/package/leone-cli
+Or visit: https://www.npmjs.com/package/@netelite/leone-cli
 
 ---
 

@@ -39,7 +39,7 @@ Command Line Interface for installing and managing the LEONE AI Governance Metho
 
 ```bash
 # Install globally
-npm install -g leone-cli
+npm install -g @netelite/leone-cli
 
 # Now you can use 'leone' from anywhere
 leone init
@@ -62,7 +62,7 @@ node index.js <command>
 
 ```bash
 # Use npx to run without installing
-npx leone-cli init
+npx @netelite/leone-cli init
 ```
 
 ---
@@ -207,7 +207,7 @@ npm login
 npm publish
 
 # 5. Install globally to test
-npm install -g leone-cli
+npm install -g @netelite/leone-cli
 leone version
 ```
 
@@ -224,6 +224,7 @@ leone version
 
 - **Issues:** https://github.com/netelite/leone-cli/issues
 - **Repository:** https://github.com/netelite/leone-cli
+- **NPM:** https://www.npmjs.com/package/@netelite/leone-cli
 
 ---
 
