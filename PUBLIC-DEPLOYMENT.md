@@ -21,7 +21,7 @@ Before deploying, ensure you have:
 ### 1.1 Navigate to CLI Directory
 
 ```bash
-cd C:\Users\PC\desktop\projekat-9\leone-cli
+cd your_destination\leone-cli
 ```
 
 ### 1.2 Initialize Git (if not already done)
@@ -93,7 +93,7 @@ Before publishing to NPM, test locally:
 ### 3.1 Create Test Package
 
 ```bash
-cd C:\Users\PC\desktop\projekat-9\leone-cli
+cd your_destination\leone-cli
 npm pack
 ```
 
@@ -138,7 +138,7 @@ Enter your npm credentials.
 ### 4.2 Publish
 
 ```bash
-cd C:\Users\PC\desktop\projekat-9\leone-cli
+cd your_destination\leone-cli
 npm publish
 ```
 
