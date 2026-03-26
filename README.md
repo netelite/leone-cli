@@ -207,8 +207,8 @@ leone version
 
 ## Support
 
-- **Issues:** https://github.com/YOUR_USERNAME/leone-cli/issues
-- **Repository:** https://github.com/YOUR_USERNAME/leone-cli
+- **Issues:** https://github.com/netelite/leone-cli/issues
+- **Repository:** https://github.com/netelite/leone-cli
 
 ---
 
