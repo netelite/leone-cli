@@ -1,0 +1,54 @@
+{
+  "name": "leone-cli",
+  "version": "1.0.0",
+  "description": "LEONE AI Governance Methodology CLI",
+  "main": "index.js",
+  "bin": {
+    "leone": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "leone",
+    "ai",
+    "governance",
+    "methodology",
+    "cli",
+    "ai-governance",
+    "netelite"
+  ],
+  "author": "NETELITE",
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "files": ["index.js", "package.json"]
+    },
+    {
+      "type": "CC-BY-NC-ND-4.0",
+      "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "files": [".leone-source/**"]
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/leone-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/leone-cli/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/leone-cli#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "index.js",
+    ".leone-source/",
+    "README.md",
+    "LICENSE-CODE",
+    "LICENSE-METHODOLOGY"
+  ]
+}

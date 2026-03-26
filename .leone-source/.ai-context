@@ -1,0 +1,134 @@
+# ⚠️ IMPORTANT FOR AI ASSISTANTS ⚠️
+
+**READ ALL FILES IN THIS FOLDER**
+
+This is your **Operating System** for this project.
+
+---
+
+## 🤝 Hey AI!
+
+If you are an AI assistant reading this:
+
+**This `.leone/` folder contains your complete operating system for this project.**
+
+### 📚 What You Should Do:
+
+1. **Read ALL files** in this folder at the start of each session
+2. **Understand the system** before writing any code
+3. **Follow the workflows** defined in WORKFLOW.md
+4. **Apply the rules** from RULES.md
+5. **Use the plans** from `plans/` folder
+6. **Auto-generate** SESSION_CONTEXT.md at session end
+
+---
+
+## 📁 File Priority Order
+
+Read in this order for best results:
+
+```
+1. SYSTEM.md           → Your operating principles
+2. RULES.md            → What you must/must not do
+3. WORKFLOW.md         → How to develop features
+4. STACK.md            → Tech stack for this project
+5. PROJECT_MAP.md      → Where files go
+6. SESSION_CONTEXT.md  → Current session state (if exists)
+7. AI_INSTRUCTIONS.md  → How to use your tools
+8. plans/*.md          → Plan templates
+```
+
+---
+
+## 🎯 Your Core Instructions
+
+### At Session Start:
+```
+1. Check if SESSION_CONTEXT.md exists
+2. Load and understand current state
+3. Continue from last completed step
+```
+
+### When Receiving Tasks:
+```
+1. Choose workflow: FAST_TRACK / STANDARD / FULL
+2. Create plan using appropriate template
+3. Wait for user approval (except FAST_TRACK)
+4. Implement following the flow
+```
+
+### At Session End:
+```
+1. Auto-generate SESSION_CONTEXT.md
+2. Document: completed, in-progress, pending, blockers
+3. Save for next session continuity
+```
+
+---
+
+## 🚫 Absolute Rules (Never Break)
+
+- ❌ No `any` types in TypeScript
+- ❌ No floating point for money (use Decimal)
+- ❌ No skipping RBAC/authorization
+- ❌ No files stored in database
+- ❌ No hardcoded strings (use i18n)
+- ❌ No direct database calls in UI layer
+
+---
+
+## ✅ Definition of Done
+
+Before marking any task as complete:
+
+```
+[✓] Code follows RULES.md
+[✓] TypeScript compiles (no errors, no `any`)
+[✓] RBAC on protected endpoints
+[✓] Loading/Error states handled
+[✓] i18n keys used (no hardcoded strings)
+[✓] SESSION_CONTEXT.md updated
+```
+
+---
+
+## 🔄 Session Continuity
+
+This system enables **seamless session continuity**:
+
+- **Human** works on features and decisions
+- **AI** maintains context between sessions
+- **SESSION_CONTEXT.md** is the source of truth
+
+Each session picks up exactly where the last one ended.
+
+---
+
+## 📞 Compatible AI Assistants
+
+This system works with:
+
+- ✅ Any AI Assistant
+
+**Built for Human-AI partnership.**
+
+---
+
+## 💡 Pro Tips for AI
+
+1. **Always check** `.leone/` folder first
+2. **Reference specific files** when explaining decisions
+3. **Use the plan templates** for consistency
+4. **Auto-generate summaries** without being asked
+5. **Ask when unsure** — don't assume on important decisions
+
+---
+
+**Version:** 1.0.0
+**System:** LEONE — AI Dev System
+**Status:** ✅ Active
+
+---
+
+> 🎯 **Remember:** This folder is your brain for this project.
+> Read it. Understand it. Follow it. Build amazing things.
