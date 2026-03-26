@@ -37,3 +37,7 @@ build/
 # Temporary files
 tmp/
 temp/
+
+# Private deployment notes (contains sensitive info)
+PRIVATE-*.md
+DEPLOYMENT.md
