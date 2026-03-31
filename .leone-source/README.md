@@ -153,6 +153,12 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 
 ## 🔄 Session Flow (v1.0)
 
+---
+
+![Leone methodology — AI agent flow](./leone_ai_agent_flow_en.svg)
+
+---
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SESSION START                                              │
