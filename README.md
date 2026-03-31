@@ -187,6 +187,12 @@ your-project/
 
 ---
 
+## 🔄 Session Flow (v1.0)
+
+![Leone methodology — AI agent flow](leone_ai_agent_flow_en.svg)
+
+---
+
 ## Version History
 
 | Version | Date | Changes |
