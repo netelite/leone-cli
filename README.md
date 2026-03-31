@@ -146,9 +146,9 @@ leone init
 **LEONE** = LEO + NE
 
 - **LEO** (Latin: Lion 🦁)
-- **NE** (NetElite) — The brand behind the methodology
+- **NE** (NETELITE) — The brand behind the methodology
 
-Together: **LEONE** — "The Lion of NetElite"
+Together: **LEONE** — "The Lion of NETELITE"
 
 ### Tagline
 
@@ -180,7 +180,7 @@ your-project/
     ├── PROJECT_MAP.md         # File structure reference
     ├── VERSION                # Version file
     └── plans/
-        ├── LIGHT.md           # Bug fixes (< 1 hour)
+        ├── LIGHT.md           # Bug fixes
         ├── STANDARD.md        # Most features
         └── FULL.md            # Complex features
 ```
@@ -242,7 +242,7 @@ leone version
 
 ## License
 
-MIT © NetElite
+MIT © NETELITE
 
 ---
 
