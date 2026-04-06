@@ -132,7 +132,7 @@ cd your-project-folder
 leone init
 
 # 3. Open your AI assistant — LEONE auto-bootstraps automatically!
-#    Qwen CLI reads AGENTS.md first — no copy-paste needed.
+#    Any supported AI CLI reads AGENTS.md first — no copy-paste needed.
 ```
 
 ---
@@ -168,7 +168,12 @@ LEONE v1.1.x reorients the methodology around a **solo AI development partnershi
 
 ### 🚀 Auto-Bootstrap
 
-When using **Qwen CLI**, LEONE auto-bootstraps via `AGENTS.md` — the AI reads methodology files automatically at session start. No copy-paste prompts needed.
+When using any supported AI CLI, LEONE auto-bootstraps via `AGENTS.md` — the AI reads methodology files automatically at session start. No copy-paste prompts needed.
+
+**Tested & Verified:**
+- Qwen CLI
+- Gemini
+- More models coming soon — we're continuously testing!
 
 ### 📊 Progress Reporting
 
@@ -260,6 +265,22 @@ Standardized internationalization with:
 
 ---
 
+### 🛠️ Supported AI Tools
+
+LEONE is **AI-agnostic** — it works with any AI coding assistant that reads project files at session start.
+
+**Tested & Verified:**
+- ✅ **Qwen CLI** — primary development & testing platform
+- ✅ **Gemini** — verified for auto-bootstrap and workflow compliance
+
+**Coming Soon:**
+- 🔜 We're continuously testing LEONE on additional AI models
+- 🔜 Future releases will list all successfully tested platforms
+
+**How it works:** Any AI that reads `AGENTS.md` at session start will automatically load the full LEONE methodology — no manual prompt copy-paste needed.
+
+---
+
 ## File Structure
 
 ```
@@ -274,7 +295,7 @@ After running `leone init`, your project will have:
 ```
 your-project/
 └── .leone/
-    ├── AGENTS.md              # Auto-bootstrap entry point (Qwen CLI)
+    ├── AGENTS.md              # Auto-bootstrap entry point (any AI CLI)
     ├── README.md              # Quick start guide
     ├── SYSTEM.md              # Operating principles & AI role
     ├── RULES.md               # Coding standards & anti-patterns

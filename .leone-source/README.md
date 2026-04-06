@@ -46,14 +46,14 @@ See [LICENSE-METHODOLOGY](../LICENSE-METHODOLOGY) for details.
 5. Auto-generates session summary at end
 ```
 
-### ⚡ Qwen CLI Auto-Bootstrap
+### ⚡ AI CLI Auto-Bootstrap
 
-When using Qwen CLI, the `AGENTS.md` file ensures methodology is loaded automatically.
-**You don't need to copy-paste any prompt.** Just start Qwen in the project folder and give your task.
+When using any supported AI CLI, the `AGENTS.md` file ensures methodology is loaded automatically.
+**You don't need to copy-paste any prompt.** Just start your AI CLI in the project folder and give your task.
 
 ```bash
 cd my-project
-qwen
+# Start your AI CLI (Qwen, Gemini, or other supported tools)
 # AI automatically reads AGENTS.md → loads LEONE → says "LEONE v1.1.1 loaded. Ready for task."
 # You: "Make invoice module"
 ```
@@ -64,7 +64,7 @@ qwen
 
 ```
 .leone-source/
-├── AGENTS.md              # ⚡ AUTO-BOOTSTRAP — Qwen CLI reads this first!
+├── AGENTS.md              # ⚡ AUTO-BOOTSTRAP — AI CLI reads this first!
 ├── README.md              # This file - how to use the system
 ├── SYSTEM.md              # Operating principles + AI optimization
 ├── ARCHITECTURE.md        # Layer responsibilities + structure
@@ -83,6 +83,25 @@ qwen
 ```
 
 **Total:** 14 files (11 core + 3 plan templates)
+
+---
+
+## 🛠️ Supported AI Tools
+
+LEONE is **AI-agnostic** — it works with any AI coding assistant that reads project files at session start.
+
+### Tested & Verified
+| Tool | Status | Notes |
+|------|--------|-------|
+| **Qwen CLI** | ✅ Verified | Primary development & testing platform |
+| **Gemini** | ✅ Verified | Auto-bootstrap and workflow compliance confirmed |
+
+### Coming Soon
+- 🔜 We're continuously testing LEONE on additional AI models
+- 🔜 Future releases will list all successfully tested platforms
+
+### How Auto-Bootstrap Works
+Any AI CLI that reads `AGENTS.md` at session start will automatically load the full LEONE methodology — no manual prompt copy-paste needed.
 
 ---
 
@@ -122,7 +141,7 @@ v1.1.1 is optimized specifically for **1 Human + 1 AI** development with auto-bo
 | **Secret Management** | DATA_LAYER.md | How to handle .env, API keys, JWT secrets |
 | **N+1 Query Prevention** | DATA_LAYER.md | Most common performance mistake — prevented by design |
 | **Vitest + Factories + Mocking** | TESTING.md | Modern test stack, test data factories, external service mocking |
-| **AGENTS.md (Auto-Bootstrap)** | AGENTS.md | Qwen CLI automatski učitava LEONE — nula ručnog posla |
+| **AGENTS.md (Auto-Bootstrap)** | AGENTS.md | Any AI CLI automatski učitava LEONE — nula ručnog posla |
 
 ### Removed / Simplified
 | What | Why |
