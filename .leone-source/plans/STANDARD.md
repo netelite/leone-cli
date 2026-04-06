@@ -1,4 +1,4 @@
-# STANDARD Plan Template
+# LEONE v1.1.1 — STANDARD Plan Template
 
 **Workflow:** STANDARD
 **For:** Most new features, CRUD operations, integrations
@@ -255,5 +255,6 @@ See [SYSTEM.md#approval-options](../SYSTEM.md#approval-options) for all response
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Methodology:** LEONE AI Governance
 **Template:** STANDARD

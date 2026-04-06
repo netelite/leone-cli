@@ -1,4 +1,4 @@
-# LEONE v1.0 — TECH STACK & CONVENTIONS
+# LEONE v1.1.1 — TECH STACK & CONVENTIONS
 
 > **NOTE:** This file is **CUSTOMIZABLE** per project. Edit to match your stack.
 
@@ -328,5 +328,5 @@ locales/
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **Status:** ✅ Template (Customize per project)

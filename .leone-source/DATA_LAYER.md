@@ -1,4 +1,4 @@
-# LEONE v1.0 — DATA LAYER RULES
+# LEONE v1.1.1 — DATA LAYER RULES
 
 > **Purpose:** Define database-first thinking and data integrity rules
 
@@ -236,8 +236,21 @@ class AuthService {
 
 ```typescript
 // ✅ GOOD - Audit trail
+interface AuditChanges {
+  [key: string]: unknown;
+}
+
+interface AuditLogEntry {
+  action: string;
+  entity: string;
+  entityId: string;
+  userId: string;
+  changes?: AuditChanges;
+  timestamp: Date;
+}
+
 class AuditService {
-  async log(action: string, entity: string, entityId: string, userId: string, changes?: any) {
+  async log(action: string, entity: string, entityId: string, userId: string, changes?: AuditChanges) {
     return this.db.auditLog.create({
       data: {
         action,
@@ -340,6 +353,135 @@ Before any database operation:
 
 ---
 
+## 🔐 Secret Management
+
+### Why This Exists
+API keys, database passwords, JWT secrets — these must never appear in code or git history. I must handle secrets correctly by design.
+
+### What Counts as a Secret
+- API keys (Stripe, SendGrid, AWS, etc.)
+- Database connection strings (contain passwords)
+- JWT signing keys
+- OAuth client secrets
+- Encryption keys
+- Third-party service tokens
+
+### Rules
+- [ ] NEVER commit `.env` files to git
+- [ ] ALWAYS use `.env.example` with placeholder values
+- [ ] NEVER log secret values (even in error messages)
+- [ ] NEVER pass secrets as query parameters or in URLs
+- [ ] Rotate secrets every 90 days (or immediately after exposure)
+
+### .env.example Template
+```env
+# Database
+DATABASE_URL="postgresql://user:PASSWORD@localhost:5432/dbname"
+
+# Auth
+JWT_SECRET="change-me-in-production"
+JWT_EXPIRY="24h"
+
+# External Services
+STRIPE_SECRET_KEY="sk_test_..."
+SENDGRID_API_KEY="SG...."
+
+# Feature Flags
+ENABLE_AUDIT_LOGS=true
+```
+
+### Environment-Specific Strategy
+| Env | Secret Source |
+|-----|---------------|
+| Local | `.env` file (gitignored) |
+| CI/CD | Platform secrets (GitHub Actions, Vercel env) |
+| Production | Environment variables, secret manager (AWS Secrets Manager, Doppler) |
+
+### Exposure Response
+If a secret is accidentally committed:
+1. Revoke/rotate immediately
+2. Remove from git history (`git filter-branch` or `bfg`)
+3. Force push
+4. Notify user
+5. Audit access logs for misuse
+
+---
+
+## ⚡ N+1 Query Prevention
+
+### Why This Exists
+I will naturally write loops that load relations one-by-one. This is the most common performance mistake. N+1 queries must be prevented by design.
+
+### What Is N+1
+```
+1 query to get N records
++ N queries to get each record's relations
+= N+1 total queries (could be 100+ queries)
+```
+
+### How to Prevent
+
+#### Rule 1: Always use `include` or `select` for relations
+```typescript
+// ❌ BAD — N+1: 1 + N queries
+const users = await db.user.findMany();
+const usersWithPosts = users.map(user => ({
+  ...user,
+  posts: await db.post.findMany({ where: { authorId: user.id } })
+}));
+
+// ✅ GOOD — 1 query with include
+const users = await db.user.findMany({
+  include: { posts: true }
+});
+```
+
+#### Rule 2: Never load relations in a loop
+```typescript
+// ❌ BAD
+for (const user of users) {
+  const profile = await db.profile.findUnique({ where: { userId: user.id } });
+}
+
+// ✅ GOOD
+const profiles = await db.profile.findMany({
+  where: { userId: { in: users.map(u => u.id) } }
+});
+```
+
+#### Rule 3: Use `select` to limit fields
+```typescript
+// ❌ BAD — loads all fields
+const users = await db.user.findMany();
+
+// ✅ GOOD — loads only what's needed
+const users = await db.user.findMany({
+  select: { id: true, name: true, email: true }
+});
+```
+
+#### Rule 4: Always paginate
+```typescript
+// ❌ BAD — loads ALL records
+const users = await db.user.findMany();
+
+// ✅ GOOD — paginated
+const users = await db.user.findMany({
+  take: 20,
+  skip: (page - 1) * 20,
+  orderBy: { createdAt: 'desc' }
+});
+```
+
+### N+1 Checklist
+- [ ] No relation loading in loops
+- [ ] `include`/`select` used instead of manual queries
+- [ ] Pagination applied to list queries
+- [ ] Only necessary fields selected
+- [ ] Foreign key columns indexed
+
+---
+
 ## ✅ Code Review Checklist
 
 ```
@@ -357,6 +499,6 @@ Before any database operation:
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

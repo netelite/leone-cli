@@ -1,4 +1,4 @@
-# LEONE v1.0 — AI INSTRUCTIONS
+# LEONE v1.1.1 — AI INSTRUCTIONS
 
 > **For:** You (AI Assistant)
 > **Purpose:** How to use tools and generate session summaries
@@ -248,7 +248,9 @@ Please respond with: "approved", "revise: [reason]", or "pause"
 ## 🚀 Quick Reference
 
 ```
-Session Start → Load SESSION_CONTEXT.md
+Session Start → Read AGENTS.md (auto-bootstrap)
+     ↓
+AGENTS.md → Loads SYSTEM.md, WORKFLOW.md, RULES.md
      ↓
 Receive Task → Choose Workflow
      ↓
@@ -263,6 +265,6 @@ Session End → Generate SESSION_CONTEXT.md
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **For:** You (AI Assistant)
 **Status:** ✅ Active

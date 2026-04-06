@@ -1,4 +1,4 @@
-# Session Context
+# LEONE v1.1.1 — Session Context
 
 > **Auto-generated session state** — You update this at the end of each session
 
@@ -14,6 +14,14 @@
 - ✅ After completing any feature/phase
 
 **Never end a session without updating this file!**
+
+---
+
+## Version
+
+- **Session #:** [number — increment each session]
+- **Last Updated:** YYYY-MM-DD HH:MM
+- **Previous Version:** Session #[N-1] (or "None" for first session)
 
 ---
 
@@ -114,4 +122,5 @@
 ---
 
 **Last Updated:** YYYY-MM-DD HH:MM
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Methodology:** LEONE AI Governance

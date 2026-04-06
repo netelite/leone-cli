@@ -1,24 +1,59 @@
-# LEONE v1.0 — CODING RULES & STANDARDS
+# LEONE v1.1.1 — CODING RULES & STANDARDS
 
 ---
 
-## 🧠 Smart Reuse Rule (BEFORE CREATING NEW CODE)
+## 🧠 Smart Reuse Rule (Expanded Decision Tree)
 
-**Before creating new code, you MUST:**
+**Before creating new code, follow this decision tree:**
 
 ```
-1. SEARCH existing code for similar logic
-2. REUSE if possible (don't reinvent)
-3. EXTEND if needed (modify existing)
-4. CREATE NEW only if absolutely necessary
+1. SEARCH: Does similar code exist? (grep/glob for keywords)
+   │
+   ├── YES → Go to 2
+   └── NO → Create new (document why nothing existed)
+   │
+2. EVALUATE: Is the existing code reusable?
+   │
+   ├── YES (same domain, clean API) → Go to 3
+   ├── YES BUT (different domain, needs extraction) → Go to 4
+   └── NO (tightly coupled, dirty) → Create new, flag for refactor
+   │
+3. EXTEND: Can I add my use case to existing code?
+   │
+   ├── YES (minor addition) → Extend existing code
+   └── NO (would break SRP) → Create new, import shared utilities
+   │
+4. EXTRACT: Should I refactor to make reusable?
+   │
+   ├── YES (will be reused 3+ times) → Extract shared logic first
+   └── NO (one-off case) → Duplicate with TODO comment, schedule refactor
 ```
 
-**Ask yourself:**
-- "Does this already exist somewhere?"
-- "Can I extend an existing function/service?"
-- "Am I duplicating logic?"
+### "Similar Enough" Threshold
+Code is "similar enough" to reuse when ALL are true:
+- [ ] Shares 60%+ logic or structure
+- [ ] Same or related domain
+- [ ] Can be extended without violating Single Responsibility
+- [ ] Doesn't require awkward abstractions
 
-**If yes to any → STOP and refactor instead!**
+### When NOT to Reuse
+- Reuse would create a "god function" with many if/else branches
+- The abstraction is leaky (caller needs to know internals)
+- More time spent adapting than creating from scratch
+- Existing code is scheduled for deletion
+- You're forcing reuse just to avoid creating — this is worse than duplication
+
+### Search Commands to Use
+```bash
+# Find files by name pattern
+glob **/*user*service*.ts
+
+# Find code by keyword
+grep_search "findByEmail" --glob "*.ts"
+
+# Find all references to a pattern
+grep_search "class.*Service" --glob "*.ts"
+```
 
 ---
 
@@ -249,7 +284,113 @@ const { data: users } = useUsers();
 | RBAC Coverage | 100% | All protected routes have middleware |
 | File Size | < 200 lines | Count lines per file |
 | Function Size | < 50 lines | Count lines per function |
-| Test Coverage | 80%+ | Run test coverage tool |
+| Test Coverage | 60%+ (solo) / 80%+ (production) | Run coverage tool |
+
+---
+
+## ⚡ Performance Budget
+
+### Why This Exists
+Without explicit limits, I will silently create a 2MB bundle or an API endpoint that takes 3 seconds to respond. Performance must be a first-class concern.
+
+### Frontend Budgets
+| Metric | Target | How to Measure |
+|--------|--------|----------------|
+| Bundle size (initial load) | < 200KB gzipped | `npm run build` + analysis |
+| Bundle size (total app) | < 500KB gzipped | Webpack/Vite bundle analyzer |
+| TTI (Time to Interactive) | < 3.5s on 3G | Lighthouse |
+| FCP (First Contentful Paint) | < 1.8s | Lighthouse |
+| CLS (Cumulative Layout Shift) | < 0.1 | Lighthouse |
+
+### Backend Budgets
+| Metric | Target | How to Measure |
+|--------|--------|----------------|
+| API response time (p95) | < 200ms | Manual timing or APM |
+| DB query time (p95) | < 50ms | Prisma logging |
+| Memory per request | < 50MB | Node.js --inspect |
+
+### N+1 Query Prevention
+```typescript
+// ❌ BAD — N+1 query (1 query for users + N queries for posts)
+const users = await db.user.findMany();
+for (const user of users) {
+  user.posts = await db.post.findMany({ where: { authorId: user.id } });
+}
+
+// ✅ GOOD — Single query with include
+const users = await db.user.findMany({
+  include: { posts: true }
+});
+```
+
+### Performance Rules
+- [ ] Use `include`/`select` instead of manual relation loading
+- [ ] Add `take`/`skip` for pagination (never load all records)
+- [ ] Index foreign key columns in database
+- [ ] Use code splitting for routes (lazy loading)
+- [ ] Review slow query log weekly
+- [ ] If bundle exceeds budget → investigate with analyzer
+
+---
+
+## 🌍 i18n Workflow
+
+### Why This Exists
+"No hardcoded strings" is a rule without a workflow. This defines HOW i18n actually works.
+
+### Key Naming Convention
+```
+{namespace}.{feature}.{entity}.{action_or_property}
+
+Examples:
+  auth.login.submit_button
+  auth.login.forgot_password
+  users.list.empty_state
+  users.edit.form_title
+  errors.user.not_found
+  errors.validation.email_invalid
+  common.actions.delete
+  common.actions.save
+```
+
+### File Structure
+```
+locales/
+├── en/
+│   ├── auth.json
+│   ├── users.json
+│   ├── errors.json
+│   └── common.json
+└── sr/
+    ├── auth.json
+    ├── users.json
+    ├── errors.json
+    └── common.json
+```
+
+### Translation Workflow
+1. **Developer** adds key to default locale (`en`) with fallback value
+2. **Developer** uses key in code immediately: `t('auth.login.submit_button')`
+3. **Translation request** filed (issue/PR comment or note to user)
+4. **Translator** adds translations to other locales
+5. **Until translated**, fallback (en) value is shown
+
+### Usage Rules
+- [ ] NEVER hardcode user-facing strings in components
+- [ ] ALWAYS use fallback values in default locale (en)
+- [ ] Keys must be descriptive but concise
+- [ ] Avoid dynamic keys: `t(\`user.${status}\`)` → use explicit mapping
+- [ ] Missing keys logged in dev mode (NOT in production)
+- [ ] System strings (IDs, timestamps, technical data) don't need i18n
+
+### What DOESN'T Need i18n
+| String | Needs i18n? | Why |
+|--------|-------------|-----|
+| "User not found" | ✅ YES | User-facing |
+| "Error: ENOENT" | ❌ NO | Technical, dev-facing |
+| "2026-03-25" | ❌ NO | Format, not language |
+| "admin" (role value) | ❌ NO | System value, not display |
+| Submit button text | ✅ YES | User-facing |
 
 ---
 
@@ -264,6 +405,6 @@ const { data: users } = useUsers();
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

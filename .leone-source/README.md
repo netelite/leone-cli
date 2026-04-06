@@ -1,6 +1,7 @@
-# LEONE v1.0 — AI-First Development System
+# LEONE v1.1.1 — AI-First Development System
 
-> **Optimized for AI** — Lead your AI with confidence.
+> **AI Partner Profile** — Optimized for 1 Human + 1 AI partnership.
+> Lead your AI with confidence.
 
 ---
 
@@ -33,16 +34,28 @@ See [LICENSE-METHODOLOGY](../LICENSE-METHODOLOGY) for details.
 | 1 | Tell me what you want to build | I'll choose workflow |
 | 2 | Review my plan | Approve/revise |
 | 3 | Say "approved" / "go" / "yes" | I start building |
-| 4 | Watch progress | I update as I work |
+| 4 | Review at checkpoints | I present work for your review |
 
 ### For You (AI)
 
 ```
-1. Load system context at session start
-2. Read SYSTEM.md for operating principles
-3. Follow WORKFLOW.md for feature development
-4. Use AI_INSTRUCTIONS.md for tool usage
-5. Auto-generate session summary at end
+1. AGENTS.md auto-reads at session start (bootstrap)
+2. Loads SYSTEM.md, WORKFLOW.md, RULES.md automatically
+3. Follows methodology for all work
+4. Runs self-review before saying "done"
+5. Auto-generates session summary at end
+```
+
+### ⚡ Qwen CLI Auto-Bootstrap
+
+When using Qwen CLI, the `AGENTS.md` file ensures methodology is loaded automatically.
+**You don't need to copy-paste any prompt.** Just start Qwen in the project folder and give your task.
+
+```bash
+cd my-project
+qwen
+# AI automatically reads AGENTS.md → loads LEONE → says "LEONE v1.1.1 loaded. Ready for task."
+# You: "Make invoice module"
 ```
 
 ---
@@ -50,7 +63,8 @@ See [LICENSE-METHODOLOGY](../LICENSE-METHODOLOGY) for details.
 ## 📁 File Structure
 
 ```
-.leone/
+.leone-source/
+├── AGENTS.md              # ⚡ AUTO-BOOTSTRAP — Qwen CLI reads this first!
 ├── README.md              # This file - how to use the system
 ├── SYSTEM.md              # Operating principles + AI optimization
 ├── ARCHITECTURE.md        # Layer responsibilities + structure
@@ -87,6 +101,42 @@ See [LICENSE-METHODOLOGY](../LICENSE-METHODOLOGY) for details.
 See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response options.
 
 **Najčešće:** `"approved"` / `"go"` / `"yes"` ili `"revise: [razlog]"`
+
+---
+
+## ✨ What's New in v1.1.1 — AI Partner Profile + Progress Reporting
+
+v1.1.1 is optimized specifically for **1 Human + 1 AI** development with auto-bootstrap. Key changes:
+
+### Added
+| Feature | Where | Why |
+|---------|-------|-----|
+| **Context Reset Procedure** | SYSTEM.md | AI loses context in long sessions — this manages the constraint |
+| **AI Self-Review Checklist** | SYSTEM.md | AI says "done" too early — self-review catches issues before user sees them |
+| **Stop & Redirect** | SYSTEM.md | Instant stop mechanism without pivot ceremony |
+| **Human Review Points** | SYSTEM.md | Defines exactly when the user steps in and what to check |
+| **Plan Recovery Procedure** | WORKFLOW.md | Handles fundamentally wrong plans (not just mid-implementation blockers) |
+| **Smart Reuse Decision Tree** | RULES.md | Concrete decision tree instead of vague "search before create" |
+| **Performance Budget** | RULES.md | Prevents silent performance degradation (bundle size, N+1 queries) |
+| **i18n Workflow** | RULES.md | Concrete workflow for "no hardcoded strings" rule |
+| **Secret Management** | DATA_LAYER.md | How to handle .env, API keys, JWT secrets |
+| **N+1 Query Prevention** | DATA_LAYER.md | Most common performance mistake — prevented by design |
+| **Vitest + Factories + Mocking** | TESTING.md | Modern test stack, test data factories, external service mocking |
+| **AGENTS.md (Auto-Bootstrap)** | AGENTS.md | Qwen CLI automatski učitava LEONE — nula ručnog posla |
+
+### Removed / Simplified
+| What | Why |
+|------|-----|
+| "Team" references | You are solo — no team to discuss with |
+| Time estimates in plans | AI has no reliable time sense |
+| Enterprise risk matrices | Overhead for solo development |
+| FULL plan bloat (483 → ~150 lines) | 80% was noise for 1+AI setup |
+| 80% test coverage requirement | 60% is pragmatic for solo, 80% for production |
+
+### Fixed
+| What | Issue |
+|------|-------|
+| `any` type in AuditService | Violated own "no any" rule |
 
 ---
 
@@ -151,7 +201,7 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 
 ---
 
-## 🔄 Session Flow (v1.0)
+## 🔄 Session Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -246,7 +296,7 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 
 ---
 
-## 🔄 Mid-Implementation Pivot (v1.0)
+## 🔄 Mid-Implementation Pivot
 
 If you find a blocker or better approach during implementation:
 
@@ -267,7 +317,9 @@ If you find a blocker or better approach during implementation:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v1.0.0 | 2026-03-25 | Initial LEONE release - Human-AI partnership system |
+| v1.1.1 | 2026-04-03 | Progress Reporting — Structured format za AI fokus i quality kontrolu |
+| v1.1.0 | 2026-04-03 | AI Partner Profile — Context reset, self-review, stop & redirect, human review points, performance budget, i18n workflow, secret management, N+1 prevention, Vitest, factories, mocking, simplified FULL plan |
+| v1.0.0 | 2026-03-25 | Initial LEONE release — Human-AI partnership system |
 
 ---
 

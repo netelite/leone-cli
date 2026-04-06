@@ -1,4 +1,4 @@
-# LIGHT Plan Template
+# LEONE v1.1.1 — LIGHT Plan Template
 
 **Workflow:** FAST_TRACK / LIGHT
 **For:** Bug fixes, minor changes, hotfixes (< 1 hour)
@@ -80,3 +80,9 @@
 
 **Approval:** NOT REQUIRED (FAST_TRACK)
 **Status:** [Pending / In Progress / Done]
+
+---
+
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Methodology:** LEONE AI Governance
+**Template:** LIGHT (FAST_TRACK)

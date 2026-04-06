@@ -1,4 +1,4 @@
-# LEONE v1.0 — FEATURE WORKFLOW
+# LEONE v1.1.1 — FEATURE WORKFLOW
 
 ---
 
@@ -142,12 +142,15 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 ✅ "approved with changes: Use STANDARD instead of FULL"
 ✅ "revise: Add more detail on security implementation"
 ✅ "simplify: We need this fast, skip nice-to-haves"
-✅ "pause: Need to discuss with team first"
+✅ "pause: Need to think about this first"
+✅ "stop" → Instant stop (see Stop & Redirect in SYSTEM.md)
+✅ "nije to to" → Return to planning
+✅ "promijeni pristup" → Present alternatives
 ```
 
 ---
 
-## 🔄 Mid-Implementation Pivot (v1.0)
+## 🔄 Mid-Implementation Pivot
 
 ### When You Pivot
 
@@ -191,6 +194,51 @@ You will STOP and pivot when:
 | C | Inline role checks | Fast now | Technical debt | +10 min |
 
 **My Recommendation:** Option B — Clean separation, reasonable time.
+
+**Your decision?**
+```
+
+---
+
+## 🔄 Plan Recovery Procedure
+
+### When: The Entire Plan Was Wrong
+The pivot procedure above handles blockers *during* implementation. But sometimes the **plan itself was fundamentally wrong from the start**.
+
+**Triggers:**
+- Scope is 2x larger than estimated
+- Existing system architecture doesn't support the planned approach
+- You discover technical constraints that change the entire approach
+- The user says "nije to to" after seeing the first implementation
+
+### Recovery Process
+```
+1. STOP implementation
+2. Document: What did we assume vs what did we find?
+3. Present "Plan Recovery" with:
+   - What we assumed
+   - What we found
+   - Options (including "start over")
+   - Revised approach
+4. Get approval on new plan
+5. Revert changes if needed
+```
+
+### Plan Recovery Template
+```markdown
+## 🚨 Plan Recovery
+
+**Original Assumption:** [What we thought would work]
+**Reality:** [What we actually found]
+
+**Options:**
+| Option | Approach | Revert Needed | New Estimate |
+|--------|----------|---------------|--------------|
+| A | Adapt current plan | Partial | Continue with adjustments |
+| B | New approach | Full revert | New plan required |
+| C | Defer and reconsider | None | 0 (for now) |
+
+**My Recommendation:** [Option + why]
 
 **Your decision?**
 ```
@@ -286,6 +334,7 @@ A feature is **Done** when ALL are true:
 | Performance fix | STANDARD + profiling | Yes | Measure first |
 | Security patch | FAST_TRACK → notify | No (critical) | Fix → Notify |
 | "Make it faster" | STANDARD | Yes | Clarify: what aspect? |
+| "Make it simpler" | FAST_TRACK or STANDARD | Yes | Clarify: what to skip? |
 
 ---
 

@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const CLI_VERSION = '1.0.0';
-const LEONE_VERSION = '1.0.0';
+const CLI_VERSION = '1.1.1';
+const LEONE_VERSION = '1.1.1';
 const SOURCE_DIR = path.join(__dirname, '.leone-source');
 
 // Colors for terminal output
@@ -152,7 +152,9 @@ ${colors.cyan}${colors.bright}KEY PRINCIPLES:${colors.reset}
   ✓ Structured workflows
   ✓ Approval gates
   ✓ Coding standards for AI-native development
-  ✓ Human-AI collaboration
+  ✓ Human-AI collaboration (1 Human + 1 AI)
+  ✓ Auto-bootstrap via AGENTS.md
+  ✓ Progress reporting & self-review
 
 ${colors.cyan}${colors.bright}VERSIONS:${colors.reset}
   CLI Version: ${colors.cyan}${CLI_VERSION}${colors.reset}
@@ -166,6 +168,17 @@ ${colors.cyan}${colors.bright}NOT A:${colors.reset}
 ${colors.cyan}${colors.bright}IS A:${colors.reset}
   ✓ Methodology — a system of methods for achieving
     consistent, high-quality AI-assisted development.
+
+${colors.cyan}${colors.bright}KEY FEATURES:${colors.reset}
+  ✓ AI Self-Review Checklist (11 items)
+  ✓ Context Reset Procedure
+  ✓ Stop & Redirect Commands
+  ✓ Human Review Points (5 checkpoints)
+  ✓ Smart Reuse Decision Tree
+  ✓ Performance Budget (Frontend/Backend)
+  ✓ i18n Workflow & Secret Management
+  ✓ N+1 Query Prevention
+  ✓ Vitest + Factories + Mocking
 
 ${colors.dim}Built by NETELITE for AI-native development${colors.reset}
 `);
@@ -295,9 +308,13 @@ ${colors.cyan}${colors.bright}NEXT STEPS:${colors.reset}
   3. Open your AI assistant and start building!
 
 ${colors.cyan}${colors.bright}QUICK REFERENCE:${colors.reset}
-  • ${colors.yellow}SYSTEM.md${colors.reset} — Operating principles
+  • ${colors.yellow}AGENTS.md${colors.reset} — Auto-bootstrap entry point
+  • ${colors.yellow}SYSTEM.md${colors.reset} — Operating principles & AI role
   • ${colors.yellow}RULES.md${colors.reset} — Coding standards
   • ${colors.yellow}WORKFLOW.md${colors.reset} — Feature development flow
+  • ${colors.yellow}ARCHITECTURE.md${colors.reset} — Layer responsibilities
+  • ${colors.yellow}DATA_LAYER.md${colors.reset} — DB rules, secrets, N+1 prevention
+  • ${colors.yellow}TESTING.md${colors.reset} — Vitest, factories, mocking
   • ${colors.yellow}plans/${colors.reset} — Workflow templates (LIGHT/STANDARD/FULL)
 
 ${colors.magenta}🦁 Lead your AI with confidence!${colors.reset}

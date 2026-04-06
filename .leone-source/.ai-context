@@ -10,7 +10,7 @@ This is your **Operating System** for this project.
 
 If you are an AI assistant reading this:
 
-**This `.leone/` folder contains your complete operating system for this project.**
+**This `.leone-source/` folder contains your complete operating system for this project.**
 
 ### 📚 What You Should Do:
 
@@ -28,14 +28,15 @@ If you are an AI assistant reading this:
 Read in this order for best results:
 
 ```
-1. SYSTEM.md           → Your operating principles
-2. RULES.md            → What you must/must not do
-3. WORKFLOW.md         → How to develop features
-4. STACK.md            → Tech stack for this project
-5. PROJECT_MAP.md      → Where files go
-6. SESSION_CONTEXT.md  → Current session state (if exists)
-7. AI_INSTRUCTIONS.md  → How to use your tools
-8. plans/*.md          → Plan templates
+1. AGENTS.md           → ⚡ AUTO-BOOTSTRAP (Qwen CLI)
+2. SYSTEM.md           → Your operating principles
+3. RULES.md            → What you must/must not do
+4. WORKFLOW.md         → How to develop features
+5. STACK.md            → Tech stack for this project
+6. PROJECT_MAP.md      → Where files go
+7. SESSION_CONTEXT.md  → Current session state (if exists)
+8. AI_INSTRUCTIONS.md  → How to use your tools
+9. plans/*.md          → Plan templates
 ```
 
 ---
@@ -44,9 +45,10 @@ Read in this order for best results:
 
 ### At Session Start:
 ```
-1. Check if SESSION_CONTEXT.md exists
-2. Load and understand current state
-3. Continue from last completed step
+1. Read AGENTS.md (auto-bootstrap)
+2. Check if SESSION_CONTEXT.md exists
+3. Load and understand current state
+4. Continue from last completed step
 ```
 
 ### When Receiving Tasks:
@@ -55,13 +57,15 @@ Read in this order for best results:
 2. Create plan using appropriate template
 3. Wait for user approval (except FAST_TRACK)
 4. Implement following the flow
+5. Send progress reports after each phase
 ```
 
 ### At Session End:
 ```
-1. Auto-generate SESSION_CONTEXT.md
-2. Document: completed, in-progress, pending, blockers
-3. Save for next session continuity
+1. Run self-review checklist
+2. Auto-generate SESSION_CONTEXT.md
+3. Document: completed, in-progress, pending, blockers
+4. Save for next session continuity
 ```
 
 ---
@@ -74,6 +78,8 @@ Read in this order for best results:
 - ❌ No files stored in database
 - ❌ No hardcoded strings (use i18n)
 - ❌ No direct database calls in UI layer
+- ❌ No N+1 queries (use include/select)
+- ❌ No unvalidated inputs (use Zod)
 
 ---
 
@@ -87,6 +93,7 @@ Before marking any task as complete:
 [✓] RBAC on protected endpoints
 [✓] Loading/Error states handled
 [✓] i18n keys used (no hardcoded strings)
+[✓] Self-review passed (see SYSTEM.md)
 [✓] SESSION_CONTEXT.md updated
 ```
 
@@ -108,7 +115,8 @@ Each session picks up exactly where the last one ended.
 
 This system works with:
 
-- ✅ Any AI Assistant
+- ✅ Qwen CLI (auto-bootstrap via AGENTS.md)
+- ✅ Any AI Assistant (manual bootstrap via prompt)
 
 **Built for Human-AI partnership.**
 
@@ -116,15 +124,16 @@ This system works with:
 
 ## 💡 Pro Tips for AI
 
-1. **Always check** `.leone/` folder first
+1. **Always check** `.leone-source/` folder first
 2. **Reference specific files** when explaining decisions
 3. **Use the plan templates** for consistency
 4. **Auto-generate summaries** without being asked
 5. **Ask when unsure** — don't assume on important decisions
+6. **Use progress reporting** — keep user informed after each phase
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **System:** LEONE — AI Dev System
 **Status:** ✅ Active
 

@@ -1,4 +1,4 @@
-# LEONE v1.0 — TESTING RULES
+# LEONE v1.1.1 — TESTING RULES
 
 > **Purpose:** Ensure all code is tested and validated
 
@@ -311,39 +311,168 @@ describe('Edge Cases', () => {
 
 ## 🧰 Testing Tools
 
-### Recommended Stack
+### Modern Test Stack Options
+
+| Tool | Use For | Why Choose It |
+|------|---------|---------------|
+| **Vitest** | Unit + Integration tests | Faster than Jest, native ESM, Vite integration, same API as Jest |
+| **Jest** | Unit + Integration tests | Mature ecosystem, better mocking, widely adopted |
+| **Playwright** | E2E tests | Multi-browser, reliable, auto-wait, parallel execution |
+| **Supertest** | API integration tests | Express endpoint testing |
+
+### Recommended Stack (AI Partner Profile)
+
+For solo + AI setup, prefer **Vitest** over Jest — it's faster and integrates better with modern tooling:
 
 ```json
 {
   "devDependencies": {
-    "jest": "^29.0.0",
-    "@types/jest": "^29.0.0",
+    "vitest": "^2.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "supertest": "^6.0.0",
-    "ts-jest": "^29.0.0"
+    "@types/supertest": "^6.0.0"
   }
 }
 ```
 
-### Jest Config
+### Vitest Config
 
 ```typescript
-// jest.config.ts
-export default {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  roots: ['<rootDir>/src'],
-  testMatch: ['**/*.test.ts'],
-  collectCoverage: true,
-  coverageThreshold: {
-    global: {
-      branches: 70,
-      functions: 80,
-      lines: 80,
-      statements: 80,
+// vitest.config.ts
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'node',
+    coverage: {
+      provider: 'v8',
+      thresholds: {
+        branches: 60,
+        functions: 60,
+        lines: 60,
+        statements: 60,
+      },
     },
   },
-};
+});
 ```
+
+### Coverage Thresholds: Solo vs Production
+| Metric | Solo Project | Production App |
+|--------|-------------|----------------|
+| Branches | 50% | 70% |
+| Functions | 60% | 80% |
+| Lines | 60% | 80% |
+| Statements | 60% | 80% |
+
+**Why lower for solo?** 80% coverage on a solo project creates slowdown without proportional benefit. 60% catches most bugs. 80% is for teams where code is touched by multiple people.
+
+---
+
+## 🏭 Test Data Factories
+
+### Why This Exists
+Without a factory pattern, I will duplicate test data across dozens of tests. When the schema changes, every test breaks individually. Factories centralize test data creation.
+
+### Factory Pattern
+
+```typescript
+// test/factories/userFactory.ts
+import { faker } from '@faker-js/faker';
+
+export interface CreateUserData {
+  email?: string;
+  password?: string;
+  name?: string;
+  role?: 'USER' | 'ADMIN';
+}
+
+export const createUserFactory = (overrides: CreateUserData = {}) => ({
+  email: overrides.email || faker.internet.email(),
+  password: overrides.password || faker.internet.password({ length: 12 }),
+  name: overrides.name || faker.person.fullName(),
+  role: overrides.role || 'USER',
+});
+
+// Usage in tests
+import { createUserFactory } from '../factories/userFactory';
+
+it('should create user', async () => {
+  const userData = createUserFactory({ role: 'ADMIN' });
+  const user = await repo.create(userData);
+  expect(user.role).toBe('ADMIN');
+});
+
+it('should reject duplicate email', async () => {
+  const data = createUserFactory();
+  await repo.create(data);
+  await expect(repo.create(data)).rejects.toThrow();
+});
+```
+
+### Benefits
+- One place to update when schema changes
+- Realistic fake data (faker)
+- Override specific fields per test
+- No copy-paste duplication
+
+---
+
+## 🎭 Mocking External Services
+
+### Why This Exists
+I must not call real external APIs (email, payments, storage) during tests. They're slow, expensive, and unreliable.
+
+### Mock with Jest/Vitest
+
+```typescript
+// Mock email service
+vi.mock('../services/emailService', () => ({
+  EmailService: vi.fn().mockImplementation(() => ({
+    send: vi.fn().mockResolvedValue({ id: 'mock-email-id' }),
+  })),
+}));
+```
+
+### Mock with MSW (HTTP-based services)
+For services called over HTTP (Stripe, SendGrid, etc.), use **MSW** (Mock Service Worker):
+
+```typescript
+// test/mocks/handlers.ts
+import { http, HttpResponse } from 'msw';
+
+export const handlers = [
+  http.post('https://api.stripe.com/v1/charges', () => {
+    return HttpResponse.json({
+      id: 'ch_mock',
+      status: 'succeeded',
+    });
+  }),
+  http.post('https://api.sendgrid.com/v3/mail/send', () => {
+    return HttpResponse.json({ id: 'mock-message-id' });
+  }),
+];
+
+// test/setup.ts
+import { setupServer } from 'msw/node';
+import { handlers } from './mocks/handlers';
+
+const server = setupServer(...handlers);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+```
+
+### When to Mock vs When to Use Real
+| Service | Test Strategy | Why |
+|---------|--------------|-----|
+| Email (SendGrid) | Mock | External, rate-limited |
+| Payments (Stripe) | Mock | Real money, can't test |
+| File storage (S3) | Mock | Slow, costs money |
+| Database | Real (test DB) | Need actual queries |
+| Auth provider | Mock or real test DB | Depends on setup |
 
 ---
 
@@ -373,11 +502,11 @@ A feature is **tested** when:
 [✅] RBAC tested (if applicable)
 [✅] API has integration tests
 [✅] All tests pass
-[✅] Coverage > 80%
+[✅] Coverage > 60% (solo) / > 80% (production)
 ```
 
 ---
 
-**Version:** 1.0.0
+**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active
