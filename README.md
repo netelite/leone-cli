@@ -201,9 +201,9 @@ When sessions exceed 2 hours or context degrades, the AI automatically summarize
 
 Instant session control with recognized commands:
 - `"stop"` — halt immediately
-- `"nije to to"` — wrong approach, change direction
-- `"promijeni pristup"` — switch strategy
-- `"pojasni"` — clarify current approach
+- `"this is wrong"` / `"not like this"` — wrong approach, change direction
+- `"do it differently"` / `"change approach"` — switch strategy
+- `"explain"` / `"clarify"` — clarify current approach
 
 ### 👤 Human Review Points
 

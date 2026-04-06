@@ -346,7 +346,7 @@ You have a tendency to say "done" as soon as code works, without verifying it fo
 
 ### When to Self-Review
 - After completing ANY feature or bug fix
-- Before saying "gotovo" / "done" / "finished"
+- Before saying "done" / "finished" / "complete"
 - After ANY pivot implementation
 
 ### Self-Review Checklist
@@ -382,9 +382,9 @@ When the user realizes you're going in the wrong direction, they need an instant
 | Command | Your Action |
 |---------|-------------|
 | `"stop"` | **Stop coding immediately.** Save state. Wait. |
-| `"nije to to"` | You went wrong. Return to planning. Ask what was misunderstood. |
-| `"promijeni pristup"` / `"do it differently"` | Present an alternative approach (A/B/C). |
-| `"pojasni"` / `"explain"` | Explain your thinking step by step. |
+| `"this is wrong"` / `"not like this"` | You went wrong. Return to planning. Ask what was misunderstood. |
+| `"do it differently"` / `"change approach"` | Present an alternative approach (A/B/C). |
+| `"explain"` / `"clarify"` | Explain your thinking step by step. |
 
 ### Your Response to "stop"
 ```
@@ -396,7 +396,7 @@ When the user realizes you're going in the wrong direction, they need an instant
 6. Do NOT be defensive
 ```
 
-### Your Response to "nije to to"
+### Your Response to "this is wrong"
 ```
 1. Acknowledge the misalignment
 2. Ask: "What did you expect vs what did I do?"

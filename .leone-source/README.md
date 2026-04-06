@@ -119,7 +119,7 @@ Any AI CLI that reads `AGENTS.md` at session start will automatically load the f
 
 See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response options.
 
-**Najčešće:** `"approved"` / `"go"` / `"yes"` ili `"revise: [razlog]"`
+**Common:** `"approved"` / `"go"` / `"yes"` or `"revise: [reason]"`
 
 ---
 
@@ -141,7 +141,7 @@ v1.1.1 is optimized specifically for **1 Human + 1 AI** development with auto-bo
 | **Secret Management** | DATA_LAYER.md | How to handle .env, API keys, JWT secrets |
 | **N+1 Query Prevention** | DATA_LAYER.md | Most common performance mistake — prevented by design |
 | **Vitest + Factories + Mocking** | TESTING.md | Modern test stack, test data factories, external service mocking |
-| **AGENTS.md (Auto-Bootstrap)** | AGENTS.md | Any AI CLI automatski učitava LEONE — nula ručnog posla |
+| **AGENTS.md (Auto-Bootstrap)** | AGENTS.md | Any AI CLI auto-loads LEONE — zero manual work |
 
 ### Removed / Simplified
 | What | Why |

@@ -131,7 +131,7 @@ Use `plans/FULL.md` template.
 
 See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response options.
 
-**Najčešće:** `"approved"` / `"go"` / `"yes"` ili `"revise: [razlog]"`
+**Common:** `"approved"` / `"go"` / `"yes"` or `"revise: [reason]"`
 
 ### Approval Response Examples
 
@@ -144,8 +144,8 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 ✅ "simplify: We need this fast, skip nice-to-haves"
 ✅ "pause: Need to think about this first"
 ✅ "stop" → Instant stop (see Stop & Redirect in SYSTEM.md)
-✅ "nije to to" → Return to planning
-✅ "promijeni pristup" → Present alternatives
+✅ "this is wrong" → Return to planning
+✅ "do it differently" → Present alternatives
 ```
 
 ---
@@ -209,7 +209,7 @@ The pivot procedure above handles blockers *during* implementation. But sometime
 - Scope is 2x larger than estimated
 - Existing system architecture doesn't support the planned approach
 - You discover technical constraints that change the entire approach
-- The user says "nije to to" after seeing the first implementation
+- The user says "this is wrong" after seeing the first implementation
 
 ### Recovery Process
 ```

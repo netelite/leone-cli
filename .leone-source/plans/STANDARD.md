@@ -251,7 +251,7 @@ ResourceListPage
 
 See [SYSTEM.md#approval-options](../SYSTEM.md#approval-options) for all response options.
 
-**Najčešće:** `"approved"` / `"go"` / `"yes"` ili `"revise: [razlog]"`
+**Common:** `"approved"` / `"go"` / `"yes"` or `"revise: [reason]"`
 
 ---
 
