@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const CLI_VERSION = '1.1.1';
+const CLI_VERSION = '1.1.3';
 const LEONE_VERSION = '1.1.1';
 const SOURCE_DIR = path.join(__dirname, '.leone-source');
 
@@ -187,19 +187,60 @@ ${colors.dim}Built by NETELITE for AI-native development${colors.reset}
 async function checkForUpdates() {
   showLogo();
   log.info(' Checking for updates...');
-  
-  // In a real implementation, this would check npm or a remote server
-  // For now, we'll simulate the check
-  console.log(`
+
+  try {
+    const https = require('https');
+
+    const fetchLatest = () => new Promise((resolve, reject) => {
+      https.get('https://registry.npmjs.org/@netelite/leone-cli/latest', (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+          try {
+            const json = JSON.parse(data);
+            resolve(json.version);
+          } catch (e) {
+            reject(new Error('Failed to parse npm response'));
+          }
+        });
+      }).on('error', reject);
+    });
+
+    const latestVersion = await fetchLatest();
+
+    if (latestVersion === CLI_VERSION) {
+      console.log(`
 ${colors.cyan}${colors.bright}Update Check:${colors.reset}
   Current CLI Version: ${colors.green}${CLI_VERSION}${colors.reset}
-  Current Methodology Version: ${colors.green}${LEONE_VERSION}${colors.reset}
-  
-  ${colors.dim}This is a local installation.${colors.reset}
-  ${colors.dim}For updates, pull from the source repository.${colors.reset}
+  Latest Version:      ${colors.green}${latestVersion}${colors.reset}
+
+  ${colors.green}${colors.bright}✓ You are up to date!${colors.reset}
 `);
-  
-  log.success('Update check complete');
+    } else {
+      console.log(`
+${colors.cyan}${colors.bright}Update Check:${colors.reset}
+  Current CLI Version: ${colors.yellow}${CLI_VERSION}${colors.reset}
+  Latest Version:      ${colors.green}${latestVersion}${colors.reset}
+
+  ${colors.yellow}${colors.bright}⚠ New version available!${colors.reset}
+
+  ${colors.cyan}To update:${colors.reset}
+    npm install -g @netelite/leone-cli@latest
+
+  ${colors.cyan}Then verify:${colors.reset}
+    leone version
+`);
+    }
+  } catch (err) {
+    console.log(`
+${colors.cyan}${colors.bright}Update Check:${colors.reset}
+  Current CLI Version: ${colors.green}${CLI_VERSION}${colors.reset}
+
+  ${colors.yellow}⚠ Could not check for updates (no internet or npm error).${colors.reset}
+  ${colors.dim}For updates, pull from the source repository or run:${colors.reset}
+  ${colors.dim}  npm install -g @netelite/leone-cli@latest${colors.reset}
+`);
+  }
 }
 
 function copyDirectory(src, dest, force = false) {
