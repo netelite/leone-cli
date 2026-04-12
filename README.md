@@ -160,11 +160,11 @@ Together: **LEONE** — "The Lion of NETELITE"
 
 ---
 
-## Key Features (v1.1.x)
+## Key Features (v1.2.0)
 
 ### 🤖 AI Partner Profile
 
-LEONE v1.1.x reorients the methodology around a **solo AI development partnership** — one human, one AI, working as a structured team.
+LEONE v1.2.0 reorients the methodology around a **solo AI development partnership** — one human, one AI, working as a structured team.
 
 ### 🚀 Auto-Bootstrap
 
@@ -307,7 +307,6 @@ your-project/
     ├── SESSION_CONTEXT.md     # Session summary template
     ├── AI_INSTRUCTIONS.md     # Tool usage guide
     ├── PROJECT_MAP.md         # File structure reference
-    ├── VERSION                # Version file (1.1.1)
     └── plans/
         ├── LIGHT.md           # Bug fixes (< 1 hr, no approval)
         ├── STANDARD.md        # Most features (approval required)
@@ -316,7 +315,46 @@ your-project/
 
 ---
 
-## 🔄 Session Flow (v1.1.1)
+## How It Works
+
+### 🤝 The Partnership
+
+| You (Human) | AI (Developer) |
+|-------------|----------------|
+| Define what you want to build | Create detailed plan |
+| Approve or revise the plan | Build database, API, UI |
+| Run commands (migrations, tests, dev server) | Report progress after each phase |
+| Review at checkpoints | Self-review before saying "done" |
+| Make decisions | Present options with recommendations |
+
+**You lead. AI builds. Together you're more productive.**
+
+### 🔁 Typical Workflow
+
+1. **You say:** "I need an invoice module"
+2. **AI creates:** A plan with phases, schema, endpoints, UI
+3. **You review:** Approve or request changes
+4. **AI builds:** DB → API → UI → Polish (reports progress)
+5. **You test:** Run the dev server, click around, verify
+6. **Done (or iterate):** AI updates SESSION_CONTEXT.md for next session
+
+### ⚠️ What AI Can't Do
+- Run dev servers or database migrations
+- See the app in a browser
+- Deploy to production
+- Know what you want without you saying it
+
+### ✅ What You Get
+- Clean, structured, production-ready code
+- Database schemas with migrations
+- Validated, authenticated APIs (RBAC + Zod)
+- Responsive, i18n-ready frontend
+- Tests, audit logs, documentation
+- A system that scales with your project
+
+---
+
+## 🔄 Session Flow (v1.2.0)
 
 ![Leone methodology — AI agent flow](leone_ai_agent_flow_en.svg)
 
@@ -329,6 +367,7 @@ your-project/
 | 1.0.0 | 2026-03-25 | Initial Release | Human-AI partnership system baseline |
 | 1.1.0 | 2026-04-03 | AI Partner Profile | Solo-dev focus, auto-bootstrap, context reset, self-review checklist, stop & redirect, human review points, smart reuse tree, performance budget, i18n workflow, secret management, N+1 prevention, Vitest/factories/mocking |
 | 1.1.1 | 2026-04-03 | Progress Reporting | Structured progress report templates, phase tracking with visual indicators, feature-complete report with self-review status |
+| **1.2.0** | **2026-04-12** | **Single Version** | **Unified versioning — CLI and methodology share one version from package.json. `{{VERSION}}` placeholders auto-replaced during `leone init`** |
 
 ---
 
@@ -337,24 +376,24 @@ your-project/
 If you want to publish this CLI to npm:
 
 ```bash
-# 1. Update version in package.json and .leone-source/VERSION
+# 1. Update version in package.json (single source of truth)
 npm version patch  # or minor/major
 
-# 2. Update LEONE_VERSION in index.js
-
-# 3. Test what will be published
+# 2. Test what will be published
 npm pack
 
-# 4. Login to npm (first time only)
+# 3. Login to npm (first time only)
 npm login
 
-# 5. Publish
+# 4. Publish
 npm publish
 
-# 6. Install globally to test
+# 5. Install globally to test
 npm install -g @netelite/leone-cli
 leone version
 ```
+
+> **Note:** Version is managed in one place — `package.json`. The CLI reads it dynamically, and `{{VERSION}}` placeholders in `.leone-source/` files are replaced during `leone init`.
 
 ---
 

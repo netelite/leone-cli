@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — AI INSTRUCTIONS
+# LEONE {{VERSION}} — AI INSTRUCTIONS
 
 > **For:** You (AI Assistant)
 > **Purpose:** How to use tools and generate session summaries
@@ -265,6 +265,6 @@ Session End → Generate SESSION_CONTEXT.md
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **For:** You (AI Assistant)
 **Status:** ✅ Active

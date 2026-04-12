@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — DATA LAYER RULES
+# LEONE {{VERSION}} — DATA LAYER RULES
 
 > **Purpose:** Define database-first thinking and data integrity rules
 
@@ -499,6 +499,6 @@ const users = await db.user.findMany({
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

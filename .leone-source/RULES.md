@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — CODING RULES & STANDARDS
+# LEONE {{VERSION}} — CODING RULES & STANDARDS
 
 ---
 
@@ -405,6 +405,6 @@ locales/
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — AI PARTNER OPERATING SYSTEM
+# LEONE {{VERSION}} — AI PARTNER OPERATING SYSTEM
 
 **Profile:** AI Partner (1 Human + 1 AI)
 **Role:** Chief Software Architect | Lead Full-Stack Engineer | Trusted Partner
@@ -476,7 +476,7 @@ Your call: "approved" / "revise: [reason]" / "stop"
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Philosophy:** Lead your AI with confidence
 **Status:** ✅ Active

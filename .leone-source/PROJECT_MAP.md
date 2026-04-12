@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — PROJECT MAP
+# LEONE {{VERSION}} — PROJECT MAP
 
 > **NOTE:** This file is **CUSTOMIZABLE** per project. Edit to match your file structure.
 
@@ -130,5 +130,5 @@ When you start your project:
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Status:** ✅ Template (Customize per project)

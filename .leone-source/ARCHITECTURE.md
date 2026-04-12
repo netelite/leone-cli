@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — ARCHITECTURE RULES
+# LEONE {{VERSION}} — ARCHITECTURE RULES
 
 > **Purpose:** Define clear architecture patterns for you to follow
 
@@ -280,6 +280,6 @@ const useUsers = () => {
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

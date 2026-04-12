@@ -4,8 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-const CLI_VERSION = '1.1.3';
-const LEONE_VERSION = '1.1.1';
+// Read version from package.json (single source of truth)
+const pkg = require('./package.json');
+const VERSION = pkg.version;
+
 const SOURCE_DIR = path.join(__dirname, '.leone-source');
 
 // Colors for terminal output
@@ -115,9 +117,8 @@ ${colors.cyan}${colors.bright}ABOUT LEONE:${colors.reset}
 function showVersion() {
   showLogo();
   console.log(`
-${colors.magenta}${colors.bright}🦁 LEONE CLI${colors.reset}
-Version: ${colors.cyan}${CLI_VERSION}${colors.reset}
-LEONE Method Version: ${colors.cyan}${LEONE_VERSION}${colors.reset}
+${colors.magenta}${colors.bright}🦁 LEONE${colors.reset}
+Version: ${colors.cyan}${VERSION}${colors.reset}
 
 ${colors.dim}Lead your AI with confidence${colors.reset}
 `);
@@ -156,9 +157,8 @@ ${colors.cyan}${colors.bright}KEY PRINCIPLES:${colors.reset}
   ✓ Auto-bootstrap via AGENTS.md
   ✓ Progress reporting & self-review
 
-${colors.cyan}${colors.bright}VERSIONS:${colors.reset}
-  CLI Version: ${colors.cyan}${CLI_VERSION}${colors.reset}
-  Methodology Version: ${colors.cyan}${LEONE_VERSION}${colors.reset}
+${colors.cyan}${colors.bright}VERSION:${colors.reset}
+  ${colors.cyan}${VERSION}${colors.reset}
 
 ${colors.cyan}${colors.bright}NOT A:${colors.reset}
   ✗ Framework
@@ -208,19 +208,19 @@ async function checkForUpdates() {
 
     const latestVersion = await fetchLatest();
 
-    if (latestVersion === CLI_VERSION) {
+    if (latestVersion === VERSION) {
       console.log(`
 ${colors.cyan}${colors.bright}Update Check:${colors.reset}
-  Current CLI Version: ${colors.green}${CLI_VERSION}${colors.reset}
-  Latest Version:      ${colors.green}${latestVersion}${colors.reset}
+  Current Version: ${colors.green}${VERSION}${colors.reset}
+  Latest Version:  ${colors.green}${latestVersion}${colors.reset}
 
   ${colors.green}${colors.bright}✓ You are up to date!${colors.reset}
 `);
     } else {
       console.log(`
 ${colors.cyan}${colors.bright}Update Check:${colors.reset}
-  Current CLI Version: ${colors.yellow}${CLI_VERSION}${colors.reset}
-  Latest Version:      ${colors.green}${latestVersion}${colors.reset}
+  Current Version: ${colors.yellow}${VERSION}${colors.reset}
+  Latest Version:  ${colors.green}${latestVersion}${colors.reset}
 
   ${colors.yellow}${colors.bright}⚠ New version available!${colors.reset}
 
@@ -234,7 +234,7 @@ ${colors.cyan}${colors.bright}Update Check:${colors.reset}
   } catch (err) {
     console.log(`
 ${colors.cyan}${colors.bright}Update Check:${colors.reset}
-  Current CLI Version: ${colors.green}${CLI_VERSION}${colors.reset}
+  Current Version: ${colors.green}${VERSION}${colors.reset}
 
   ${colors.yellow}⚠ Could not check for updates (no internet or npm error).${colors.reset}
   ${colors.dim}For updates, pull from the source repository or run:${colors.reset}
@@ -269,7 +269,10 @@ function copyDirectory(src, dest, force = false) {
     if (entry.isDirectory()) {
       copyDirectory(srcPath, destPath, force);
     } else {
-      fs.copyFileSync(srcPath, destPath);
+      // Read file content and replace {{VERSION}} placeholder
+      let content = fs.readFileSync(srcPath, 'utf8');
+      content = content.replace(/\{\{VERSION\}\}/g, VERSION);
+      fs.writeFileSync(destPath, content, 'utf8');
     }
   }
 

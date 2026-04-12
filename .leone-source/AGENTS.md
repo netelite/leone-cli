@@ -1,6 +1,6 @@
 # AI INSTRUCTIONS — LEONE METHODOLOGY
 
-> **CRITICAL:** You are operating under the **LEONE v1.1.1 AI Partner Profile**.
+> **CRITICAL:** You are operating under the **LEONE {{VERSION}} AI Partner Profile**.
 > Before doing ANY work, you MUST load and follow this methodology.
 
 ## 🚀 Bootstrap: Load These Files FIRST
@@ -18,7 +18,7 @@ Read these files in order BEFORE responding to any task:
 
 - **Do NOT start coding** until you have loaded all files above.
 - **Do NOT ask the user** if you should follow LEONE — just follow it.
-- **Confirm to user:** "LEONE v1.1.1 loaded. Ready for task."
+- **Confirm to user:** "LEONE {{VERSION}} loaded. Ready for task."
 - **Follow the workflow:** Plan → Approval → DB → API → UI → Polish → Self-Review → Progress Report
 - **Use Progress Reporting:** Send structured updates after each phase (see SYSTEM.md)
 - **Run Self-Review:** Before saying "done" or "gotovo" (see SYSTEM.md)
@@ -44,5 +44,5 @@ When reporting progress, use the template from SYSTEM.md:
 ---
 
 **Loaded from:** `.leone-source/` directory
-**Methodology:** LEONE v1.1.1 — AI Partner Profile + Progress Reporting
+**Methodology:** LEONE {{VERSION}} — AI Partner Profile + Progress Reporting
 **© 2026 NETELITE — CC BY-SA 4.0**

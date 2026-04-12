@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — FULL Plan Template
+# LEONE {{VERSION}} — FULL Plan Template
 
 **Workflow:** FULL
 **For:** Complex features, new modules, major refactors
@@ -171,6 +171,6 @@ See [SYSTEM.md](../SYSTEM.md) for approval options.
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Template:** FULL (Simplified)

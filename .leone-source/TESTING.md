@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — TESTING RULES
+# LEONE {{VERSION}} — TESTING RULES
 
 > **Purpose:** Ensure all code is tested and validated
 
@@ -507,6 +507,6 @@ A feature is **tested** when:
 
 ---
 
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
 **Status:** ✅ Active

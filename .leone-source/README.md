@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — AI-First Development System
+# LEONE {{VERSION}} — AI-First Development System
 
 > **AI Partner Profile** — Optimized for 1 Human + 1 AI partnership.
 > Lead your AI with confidence.
@@ -54,7 +54,7 @@ When using any supported AI CLI, the `AGENTS.md` file ensures methodology is loa
 ```bash
 cd my-project
 # Start your AI CLI (Qwen, Gemini, or other supported tools)
-# AI automatically reads AGENTS.md → loads LEONE → says "LEONE v1.1.1 loaded. Ready for task."
+# AI automatically reads AGENTS.md → loads LEONE → says "LEONE {{VERSION}} loaded. Ready for task."
 # You: "Make invoice module"
 ```
 
@@ -123,9 +123,9 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 
 ---
 
-## ✨ What's New in v1.1.1 — AI Partner Profile + Progress Reporting
+## ✨ What's New in {{VERSION}} — AI Partner Profile + Progress Reporting
 
-v1.1.1 is optimized specifically for **1 Human + 1 AI** development with auto-bootstrap. Key changes:
+{{VERSION}} is optimized specifically for **1 Human + 1 AI** development with auto-bootstrap. Key changes:
 
 ### Added
 | Feature | Where | Why |
@@ -336,6 +336,7 @@ If you find a blocker or better approach during implementation:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v1.2.0 | 2026-04-12 | Single version system - CLI and methodology share one version from package.json |
 | v1.1.1 | 2026-04-03 | Progress Reporting — Structured format za AI fokus i quality kontrolu |
 | v1.1.0 | 2026-04-03 | AI Partner Profile — Context reset, self-review, stop & redirect, human review points, performance budget, i18n workflow, secret management, N+1 prevention, Vitest, factories, mocking, simplified FULL plan |
 | v1.0.0 | 2026-03-25 | Initial LEONE release — Human-AI partnership system |

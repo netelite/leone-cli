@@ -1,4 +1,4 @@
-# LEONE v1.1.1 — Session Context
+# LEONE {{VERSION}} — Session Context
 
 > **Auto-generated session state** — You update this at the end of each session
 
@@ -122,5 +122,5 @@
 ---
 
 **Last Updated:** YYYY-MM-DD HH:MM
-**Version:** 1.1.1 — AI Partner Profile + Progress Reporting
+**Version:** {{VERSION}} — AI Partner Profile + Progress Reporting
 **Methodology:** LEONE AI Governance
