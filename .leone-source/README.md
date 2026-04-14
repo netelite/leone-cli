@@ -225,8 +225,10 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  SESSION START                                              │
-│  → Load SESSION_CONTEXT.md (if exists)                      │
-│  → Understand current state                                 │
+│  → AI reads AGENTS.md (auto-bootstrap)                      │
+│  → Loads SYSTEM.md, WORKFLOW.md, RULES.md, STACK.md,        │
+│    PROJECT_MAP.md, SESSION_CONTEXT.md (on-demand)           │
+│  → Confirm: "LEONE loaded. Ready for task."                 │
 └─────────────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -239,38 +241,91 @@ See [SYSTEM.md#approval-options](SYSTEM.md#approval-options) for all response op
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  CREATE PLAN                                                │
-│  → Present to Project Owner                                 │
+│  → Present to user with progress format                     │
 │  → Wait for approval                                        │
 └─────────────────────────────────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  APPROVAL CHECK                                             │
+│  APPROVAL GATE #1 — Plan Approval                           │
 │  → "approved" / "go" / "yes" → Continue                    │
-│  → "revise" → Back to plan                                  │
-│  → "approved with changes" → Adjust → Continue              │
+│  → "revise: reason" → Back to plan                          │
+│  → "this is wrong" → Return to planning                     │
+│  → "stop" → Halt immediately                                │
 └─────────────────────────────────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  IMPLEMENT (DB → API → UI)                                  │
-│  → Mid-implementation pivot if blocker found               │
-│  → Update progress as you work                                │
+│  IMPLEMENT (Phase by Phase)                                 │
+│  → Phase 1: DB (Schema → Migration → Validation)            │
+│  → Phase 2: API (Service → Controller → RBAC)               │
+│  → Phase 3: UI (Hooks → Components → i18n)                  │
+│  → Phase 4: Polish (Error states, tsc, lint)                │
+│  → Mid-implementation pivot if blocker found                │
+│  → Progress report after each phase                         │
+└─────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│  APPROVAL GATE #2 — Code Review (per phase)                 │
+│  → User reviews each phase before next                      │
+│  → "do it differently" → Present alternatives               │
+│  → "explain" → Explain thinking step by step                │
+└─────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│  SELF-REVIEW CHECKLIST (before saying "done")               │
+│  → Re-read own code (read_file — do NOT skip)               │
+│  → No `any` types anywhere                                  │
+│  → All inputs validated with Zod                            │
+│  → No hardcoded strings (i18n keys used)                    │
+│  → RBAC on protected endpoints                              │
+│  → Files under 200 lines                                    │
+│  → No console.log in production code                        │
+│  → tsc passes, lint passes                                  │
+│  → SESSION_CONTEXT.md updated                               │
 └─────────────────────────────────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  TEST & VERIFY                                              │
-│  → Type check, lint, manual test                            │
+│  → Type check, lint, manual test, edge cases                │
+│  → Tests pass (Vitest / integration / RBAC)                 │
+└─────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────┐
+│  APPROVAL GATE #3 — Final Review                            │
+│  → End-to-end functionality check                           │
 └─────────────────────────────────────────────────────────────┘
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  SESSION END                                                │
 │  → AUTO-GENERATE SESSION_CONTEXT.md                         │
-│  → Document progress + next steps                           │
+│  → Append-only log: completed, in-progress, pending,         │
+│    blockers, next steps, file references                    │
+│  → Ready for next session continuity                        │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+### 🛑 Stop & Redirect Commands
+
+| Command | AI Action |
+|---------|-----------|
+| `"stop"` | Halt immediately. Save state. Wait. |
+| `"this is wrong"` / `"not like this"` | Return to planning. Ask what was misunderstood. |
+| `"do it differently"` / `"change approach"` | Present alternative approach (A/B/C). |
+| `"explain"` / `"clarify"` | Explain thinking step by step. |
+
+### 👤 Human Review Points (5 Checkpoints)
+
+1. **Plan Approval** — Is the approach correct?
+2. **DB Schema** — Data model, relations correct?
+3. **API Complete** — Endpoints work? RBAC in place?
+4. **UI Complete** — Looks right? Loading/error states?
+5. **Final Review** — End-to-end functionality
 
 ---
 
@@ -336,8 +391,11 @@ If you find a blocker or better approach during implementation:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v1.2.3 | 2026-04-14 | Session Flow diagrams updated in both READMEs, leone_ai_agent_flow_en.svg updated, Version History updated |
+| v1.2.2 | 2026-04-14 | Tailwind CSS v4+ requirement, VERSION file added, English language standardization, real npm update checks |
+| v1.2.1 | 2026-04-14 | Updated Session Flow diagrams with Self-Review, Stop & Redirect, Human Review Points, phase-by-phase implementation |
 | v1.2.0 | 2026-04-12 | Single version system - CLI and methodology share one version from package.json |
-| v1.1.1 | 2026-04-03 | Progress Reporting — Structured format za AI fokus i quality kontrolu |
+| v1.1.1 | 2026-04-03 | Progress Reporting — Structured format for AI focus and quality control |
 | v1.1.0 | 2026-04-03 | AI Partner Profile — Context reset, self-review, stop & redirect, human review points, performance budget, i18n workflow, secret management, N+1 prevention, Vitest, factories, mocking, simplified FULL plan |
 | v1.0.0 | 2026-03-25 | Initial LEONE release — Human-AI partnership system |
 
