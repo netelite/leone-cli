@@ -1,6 +1,6 @@
 {
   "name": "@netelite/leone-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "LEONE AI Governance Methodology CLI",
   "main": "index.js",
   "bin": {

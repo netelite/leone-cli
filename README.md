@@ -354,7 +354,9 @@ your-project/
 
 ---
 
-## 🔄 Session Flow (v1.1.1)
+## 🔄 Session Flow
+
+![Leone methodology — AI agent flow](leone_ai_agent_flow_en.svg)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -475,7 +477,8 @@ your-project/
 | 1.2.0 | 2026-04-12 | Single Version | Unified versioning — CLI and methodology share one version from package.json. `{{VERSION}}` placeholders auto-replaced during `leone init` |
 | 1.2.1 | 2026-04-14 | Session Flow Update | Updated Session Flow diagrams in both README files with Self-Review, Stop & Redirect, Human Review Points, phase-by-phase implementation |
 | 1.2.2 | 2026-04-14 | Polish | Tailwind CSS v4+ requirement (warns against v3), VERSION file added, English language standardization, real npm update checks |
-| **1.2.3** | **2026-04-14** | **Session Flow + SVG** | **Updated Session Flow diagrams in both READMEs, leone_ai_agent_flow_en.svg updated with v1.1.x features, Version History updated** |
+| 1.2.3 | 2026-04-14 | Session Flow + SVG | Updated Session Flow diagrams in both READMEs, leone_ai_agent_flow_en.svg updated with v1.1.x features, Version History updated |
+| **1.2.4** | **2026-04-14** | **Layout fixes** | SVG diagram reference restored in CLI README, Session Flow header version removed, proper ordering restored |
 
 ---
 

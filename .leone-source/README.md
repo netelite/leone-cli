@@ -391,6 +391,7 @@ If you find a blocker or better approach during implementation:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| v1.2.4 | 2026-04-14 | Layout fixes - SVG diagram reference restored in CLI README, Session Flow header version removed, proper ordering restored |
 | v1.2.3 | 2026-04-14 | Session Flow diagrams updated in both READMEs, leone_ai_agent_flow_en.svg updated, Version History updated |
 | v1.2.2 | 2026-04-14 | Tailwind CSS v4+ requirement, VERSION file added, English language standardization, real npm update checks |
 | v1.2.1 | 2026-04-14 | Updated Session Flow diagrams with Self-Review, Stop & Redirect, Human Review Points, phase-by-phase implementation |
