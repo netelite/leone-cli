@@ -386,7 +386,7 @@ This system is **tech-agnostic**. Edit `STACK.md` to match your project's stack.
 
 Common stacks:
 - **Full-Stack**: React + Node.js + Prisma + MySQL
-- **Frontend**: React/Vue + Vite + Tailwind
+- **Frontend**: React/Vue + Vite + Tailwind CSS v4+
 - **Backend**: Node.js/Python + Express/FastAPI + Database
 - **Mobile**: React Native / Flutter
 

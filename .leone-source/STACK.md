@@ -35,7 +35,7 @@ This is a **generic template**. Replace with your actual stack:
 | Frontend | React 18 + Vite |
 | State | TanStack Query + Zustand |
 | Validation | Zod |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4+ |
 | UI Components | shadcn/ui |
 | i18n | react-i18next |
 
@@ -48,7 +48,7 @@ This is a **generic template**. Replace with your actual stack:
 | ORM | Prisma / Drizzle |
 | Auth | NextAuth / Lucia |
 | Validation | Zod |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4+ |
 | UI Components | shadcn/ui |
 | i18n | next-intl |
 
@@ -62,7 +62,7 @@ This is a **generic template**. Replace with your actual stack:
 | Auth | Firebase Auth |
 | State | TanStack Query + Zustand |
 | Validation | Zod |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4+ |
 | UI Components | shadcn/ui |
 
 ### Option 4: Vue + Nuxt
@@ -74,7 +74,7 @@ This is a **generic template**. Replace with your actual stack:
 | ORM | Prisma / Drizzle |
 | Auth | Nuxt Auth / Lucia |
 | Validation | Zod / VeeValidate |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4+ |
 | UI Components | Nuxt UI / shadcn-vue |
 
 ### Option 5: Python Backend
@@ -87,7 +87,7 @@ This is a **generic template**. Replace with your actual stack:
 | ORM | SQLAlchemy / Prisma Client JS |
 | Auth | JWT + OAuth2 |
 | Validation | Pydantic / Zod |
-| Styling | Tailwind CSS |
+| Styling | Tailwind CSS v4+ |
 
 ---
 
@@ -182,7 +182,9 @@ my-app/
 
 ## 🎨 Styling Approach
 
-### Recommended: Tailwind CSS
+### Recommended: Tailwind CSS v4+ (latest stable)
+
+**Minimum version: v4.** Do NOT use v3 — breaking changes in configuration.
 
 ```tsx
 // ✅ Good
