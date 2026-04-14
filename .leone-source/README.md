@@ -63,7 +63,7 @@ cd my-project
 ## 📁 File Structure
 
 ```
-.leone-source/
+.leone/
 ├── AGENTS.md              # ⚡ AUTO-BOOTSTRAP — AI CLI reads this first!
 ├── README.md              # This file - how to use the system
 ├── SYSTEM.md              # Operating principles + AI optimization

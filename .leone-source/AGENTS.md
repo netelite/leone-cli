@@ -7,12 +7,12 @@
 
 Read these files in order BEFORE responding to any task:
 
-1. `.leone-source/SYSTEM.md` — Core operating principles, context reset, self-review, stop & redirect, progress reporting
-2. `.leone-source/WORKFLOW.md` — Feature development process (FAST_TRACK / STANDARD / FULL), plan recovery
-3. `.leone-source/RULES.md` — Coding standards, smart reuse tree, performance budget, i18n workflow
-4. `.leone-source/SESSION_CONTEXT.md` — Current session state (if exists)
-5. `.leone-source/STACK.md` — Tech stack (customizable per project)
-6. `.leone-source/PROJECT_MAP.md` — File structure reference (customizable per project)
+1. `.leone/SYSTEM.md` — Core operating principles, context reset, self-review, stop & redirect, progress reporting
+2. `.leone/WORKFLOW.md` — Feature development process (FAST_TRACK / STANDARD / FULL), plan recovery
+3. `.leone/RULES.md` — Coding standards, smart reuse tree, performance budget, i18n workflow
+4. `.leone/SESSION_CONTEXT.md` — Current session state (if exists)
+5. `.leone/STACK.md` — Tech stack (customizable per project)
+6. `.leone/PROJECT_MAP.md` — File structure reference (customizable per project)
 
 ## ⚡ Mandatory Rules
 
@@ -43,6 +43,6 @@ When reporting progress, use the template from SYSTEM.md:
 
 ---
 
-**Loaded from:** `.leone-source/` directory
+**Loaded from:** `.leone/` directory
 **Methodology:** LEONE {{VERSION}} — AI Partner Profile + Progress Reporting
 **© 2026 NETELITE — CC BY-SA 4.0**
